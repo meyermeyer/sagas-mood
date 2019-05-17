@@ -55,6 +55,7 @@ class ImageList extends Component {
                 <Button onClick={this.handlePreviousClick} variant="contained" color="primary">Previous</Button>
                 {this.props.images.map((image,i)=> {
                     if (image.id-1 === index) {
+                        this.props.dispatch({type:'SAVE_IMAGE_ID', payload: image.id})
                         return (
                             <ImageCard key={i} image={image} />
                         )

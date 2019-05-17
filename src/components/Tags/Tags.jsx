@@ -7,7 +7,7 @@ import './Tags.css'
 class Tags extends Component {
     //dispatch action to trigger fetchTags saga to GET tags from database
     state = {
-        // image_id : 0,
+        image_id : 0,
         tag_id : 0
     }
     
@@ -19,12 +19,15 @@ class Tags extends Component {
     handleChange = (event) => {
         console.log('in handleChange', event.target.value);
         this.setState({
+            ...this.state,
             tag_id: event.target.value
         })
 
         
     }
     render(){
+        console.log(this.state);
+        
         return(
             <>
             <select onChange={this.handleChange}>
