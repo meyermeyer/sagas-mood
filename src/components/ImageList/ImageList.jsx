@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import ImageCard from '../ImageCard/ImageCard';
 import {Button} from '@material-ui/core'
+import Tags from '../Tags/Tags'
+import './ImageList.css'
 
 class ImageList extends Component {
     state = {
@@ -49,16 +51,17 @@ class ImageList extends Component {
         
         return(
             <>
+                <h1>The Mood Ring</h1>
                 <Button onClick={this.handlePreviousClick} variant="contained" color="primary">Previous</Button>
-                {this.props.images.map((image)=> {
+                {this.props.images.map((image,i)=> {
                     if (image.id-1 === index) {
                         return (
-                            <ImageCard image={image} />
+                            <ImageCard key={i} image={image} />
                         )
                     }
                 })}
                 <Button onClick={this.handleNextClick} variant="contained" color="primary">Next</Button>
-                
+                <Tags />
                 {/* <ImageCard /> */}
                 
             </>
