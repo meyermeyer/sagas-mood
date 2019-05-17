@@ -18,15 +18,28 @@ const sagaMiddleware = createSagaMiddleware();
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('FETCH_IMAGES', fetchImages)
+    yield takeEvery('FETCH_TAGS', fetchTags)
 }
 
 //saga for GET /api/images
 function* fetchImages() {
     try{
         const images = yield axios.get('/api/images');
+        //send images to reducer
         yield put({ type: 'SET_IMAGES', payload: images.data })
     }catch(error) {
         console.log('error in fetchImages', error);
+    }
+}
+
+//saga for GET /api/tags
+function* fetchTags() {
+    try {
+        const tags = yield axios.get('/api/tags');
+        //send tags to reducer
+        yield put({type:'SET_TAGS', payload: tags.data})
+    }catch(error){
+        console.log('error in fetchTags', error);
     }
 }
 
@@ -46,6 +59,8 @@ const images = (state = [], action) => {
 
 // Used to store the images tags (e.g. 'Inspirational', 'Calming', 'Energy', etc.)
 const tags = (state = [], action) => {
+    console.log('in tagsReducer', action.payload);
+    
     switch (action.type) {
         case 'SET_TAGS':
             return action.payload;
