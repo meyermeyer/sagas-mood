@@ -4,9 +4,9 @@ import {connect} from 'react-redux';
 class ImageCard extends Component {
     render() {
         return(
-            <p>Image Here</p>
+            <img src={this.props.image.path} />
         )
     }
 }
 
-export default ImageCard;
+export default connect()(ImageCard);

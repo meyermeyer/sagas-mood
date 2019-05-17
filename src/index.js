@@ -24,7 +24,7 @@ function* rootSaga() {
 function* fetchImages() {
     try{
         const images = yield axios.get('/api/images');
-        yield put({ type: 'SHOW_IMAGES', payload: images.data })
+        yield put({ type: 'SET_IMAGES', payload: images.data })
     }catch(error) {
         console.log('error in fetchImages', error);
     }
@@ -34,8 +34,10 @@ function* fetchImages() {
 
 // Used to store images returned from the server
 const images = (state = [], action) => {
+    console.log('in images reducer', action.payload);
+    
     switch (action.type) {
-        case 'SHOW_IMAGES':
+        case 'SET_IMAGES':
             return action.payload;
         default:
             return state;
@@ -56,7 +58,7 @@ const tags = (state = [], action) => {
 const storeInstance = createStore(
     combineReducers({
         images,
-        tags,
+        tags
     }),
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),
