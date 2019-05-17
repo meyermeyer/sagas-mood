@@ -63,7 +63,7 @@ class ImageList extends Component {
                 })}
                 <Button onClick={this.handleNextClick} variant="contained" color="primary">Next</Button>
                 <Tags />
-                {/* <ImageCard /> */}
+                
                 
             </>
             

@@ -19,7 +19,7 @@ class Tags extends Component {
     handleChange = (event) => {
         console.log('in handleChange', event.target.value);
         this.setState({
-            ...this.state,
+            image_id: this.props.reduxState.image_id,
             tag_id: event.target.value
         })
 
