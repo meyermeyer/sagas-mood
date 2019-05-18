@@ -40,6 +40,7 @@ class ImageList extends Component {
 
     componentDidMount(){
         this.props.dispatch({type:'FETCH_IMAGES'})
+        this.props.dispatch({ type: 'FETCH_ADDED_TAGS'})
     };
     
     

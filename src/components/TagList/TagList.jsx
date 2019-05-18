@@ -4,14 +4,19 @@ import { connect } from 'react-redux';
 class TagList extends Component {
     render() {
         return(
-            // {
-            //     this.props.reduxState.map(tag => {
-            //         return (
-            //             <p>tag</p>
-            //         )
-            //     })
-            // }
-            <p>tags here</p>
+           <ul>
+                {this.props.reduxState.addedTags.map((tag=>{
+                   
+                        if (tag.image_id === this.props.reduxState.image_id) {
+                            return(
+                                <li>{tag.name}</li>
+                            )
+                        }
+                        
+                    
+                    
+                }))}
+           </ul>
         )
         
     }

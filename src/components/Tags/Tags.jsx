@@ -29,7 +29,6 @@ class Tags extends Component {
         console.log('in handleSubmit');
         //dispatch an action with local state as payload - to SAGA where PUT will happen
         this.props.dispatch({ type:'ADD_TAG', payload: this.state})
-        
     }
     render(){
         console.log(this.state);

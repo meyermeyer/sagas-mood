@@ -20,16 +20,22 @@ function* rootSaga() {
     yield takeEvery('FETCH_IMAGES', fetchImages)
     yield takeEvery('FETCH_TAGS', fetchTags)
     yield takeEvery('ADD_TAG', addTag)
+    yield takeEvery('FETCH_ADDED_TAGS', fetchAddedTags)
 
 }
 
 
-//saga for PUT /api/images/addtag
+//saga for POST /api/images/addtag
 function* addTag(action) {
     console.log('in addTag', action.payload.image_id, action.payload.tag_id);
-    // let url = '/api/images/addtag'
     yield axios.post('/api/images/addtag', { image_id: action.payload.image_id, tag_id: action.payload.tag_id})
-    yield put({type:'DISPLAY_ASSIGNED_TAGS'})
+    //call the fetchAddedTags saga to perform another GET
+    yield put({ type: 'FETCH_ADDED_TAGS'})
+}
+
+function* fetchAddedTags() {
+    const addedTags = yield axios.get('/api/images/addtag');
+    yield put({ type: 'DISPLAY_ADDED_TAGS', payload: addedTags.data })
 }
 
 
@@ -56,7 +62,16 @@ function* fetchTags() {
 }
 
 
-
+//store addedTags
+const addedTags = (state=[], action) => {
+    console.log('in addedTags reducer', action.payload);
+    switch(action.type) {
+        case 'DISPLAY_ADDED_TAGS':
+            return action.payload
+        default:
+            return state
+    }
+}
 // Used to store images returned from the server
 const images = (state = [], action) => {
     console.log('in images reducer', action.payload);
@@ -96,7 +111,8 @@ const storeInstance = createStore(
     combineReducers({
         images,
         tags, 
-        image_id
+        image_id,
+        addedTags
     }),
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),
