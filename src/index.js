@@ -26,9 +26,11 @@ function* rootSaga() {
 //saga for PUT /api/images/addtag
 function* addTag(action) {
     console.log('in addTag', action.payload.image_id, action.payload.tag_id);
-    let url = '/api/images/addtag'
-    yield axios.post(url, { image_id: action.payload.image_id, tag_id: action.payload.tag_id})
+    // let url = '/api/images/addtag'
+    yield axios.post('/api/images/addtag', { image_id: action.payload.image_id, tag_id: action.payload.tag_id})
 }
+
+
 //saga for GET /api/images
 function* fetchImages() {
     try{
