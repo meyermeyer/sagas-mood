@@ -20,6 +20,7 @@ function* rootSaga() {
     yield takeEvery('FETCH_IMAGES', fetchImages)
     yield takeEvery('FETCH_TAGS', fetchTags)
     yield takeEvery('ADD_TAG', addTag)
+
 }
 
 
@@ -28,6 +29,7 @@ function* addTag(action) {
     console.log('in addTag', action.payload.image_id, action.payload.tag_id);
     // let url = '/api/images/addtag'
     yield axios.post('/api/images/addtag', { image_id: action.payload.image_id, tag_id: action.payload.tag_id})
+    yield put({type:'DISPLAY_ASSIGNED_TAGS'})
 }
 
 

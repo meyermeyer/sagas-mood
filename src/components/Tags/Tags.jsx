@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Button } from '@material-ui/core'
+import TagList from '../TagList/TagList'
 import './Tags.css'
 
 
@@ -35,16 +36,17 @@ class Tags extends Component {
         
         return(
             <>
-            <select onChange={this.handleChange}>
-                {/* default to select blank */}
-                <option selected disabled>Pick One</option>
-                {this.props.reduxState.tags.map((tag) => {
-                    return(
-                        <option value={tag.id}>{tag.name}</option>
-                    )
-                })}
-            </select>
-                <Button onClick={this.handleSubmit} variant="contained" color="primary">Add Tag</Button>
+                <select onChange={this.handleChange}>
+                    {/* default to select blank */}
+                    <option selected disabled>Pick One</option>
+                    {this.props.reduxState.tags.map((tag) => {
+                        return(
+                            <option value={tag.id}>{tag.name}</option>
+                        )
+                    })}
+                </select>
+                    <Button onClick={this.handleSubmit} variant="contained" color="primary">Add Tag</Button>
+                <TagList />
             </>
         )
     }
