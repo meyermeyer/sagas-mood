@@ -3,13 +3,17 @@ import { connect } from 'react-redux';
 
 class TagList extends Component {
     render() {
-        { this.props.reduxState.map(tag => {
-            <p>tag</p>
-        })}
         return(
-            
-            
+            // {
+            //     this.props.reduxState.map(tag => {
+            //         return (
+            //             <p>tag</p>
+            //         )
+            //     })
+            // }
+            <p>tags here</p>
         )
+        
     }
 }
 

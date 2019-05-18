@@ -4,7 +4,7 @@ const pool = require('../modules/pool')
 
 //GET images from database
 router.get('/', (req,res) => {
-    const query = 'SELECT * FROM "images"';
+    const query = 'SELECT * FROM "images";';
     pool.query(query)
     .then((result)=>{
         console.log('GET /api/images', result.rows);
