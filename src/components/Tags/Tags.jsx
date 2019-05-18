@@ -20,9 +20,14 @@ class Tags extends Component {
         console.log('in handleChange', event.target.value);
         this.setState({
             image_id: this.props.reduxState.image_id,
-            tag_id: event.target.value
+            tag_id: parseInt(event.target.value)
         })
+    }
 
+    handleSubmit = () => {
+        console.log('in handleSubmit');
+        //dispatch an action with local state as payload - to SAGA where PUT will happen
+        this.props.dispatch({ type:'ADD_TAG', payload: this.state})
         
     }
     render(){
@@ -39,6 +44,7 @@ class Tags extends Component {
                     )
                 })}
             </select>
+                <Button onClick={this.handleSubmit} variant="contained" color="primary">Add Tag</Button>
             </>
         )
     }

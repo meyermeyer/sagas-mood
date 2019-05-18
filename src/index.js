@@ -19,8 +19,15 @@ const sagaMiddleware = createSagaMiddleware();
 function* rootSaga() {
     yield takeEvery('FETCH_IMAGES', fetchImages)
     yield takeEvery('FETCH_TAGS', fetchTags)
+    yield takeEvery('ADD_TAG', addTag)
 }
 
+
+//saga for PUT /api/images/addtag
+function* addTag(action) {
+    console.log('in addTag', action.payload.image_id, action.payload.tag_id);
+    
+}
 //saga for GET /api/images
 function* fetchImages() {
     try{
