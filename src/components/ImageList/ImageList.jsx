@@ -47,7 +47,7 @@ class ImageList extends Component {
     render(){
         console.log('in handlePreviousClick', this.state.index);
         console.log(this.props.images);
-        let index = this.state.index
+        let index = this.state.index;
         console.log(this.state.index);
         
         return(
