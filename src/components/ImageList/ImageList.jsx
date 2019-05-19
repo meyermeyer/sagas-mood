@@ -53,17 +53,23 @@ class ImageList extends Component {
         return(
             <>
                 <h1>The Mood Ring</h1>
-                <Button onClick={this.handlePreviousClick} variant="contained" color="primary">Previous</Button>
-                {this.props.images.map((image,i)=> {
-                    if (image.id-1 === index) {
-                        this.props.dispatch({type:'SAVE_IMAGE_ID', payload: image.id})
-                        return (
-                            <ImageCard key={i} image={image} />
-                        )
-                    }
-                })}
-                <Button onClick={this.handleNextClick} variant="contained" color="primary">Next</Button>
-                <Tags />
+                <div id="container">
+                    <div id="carousel">
+                        <Button className="button" onClick={this.handlePreviousClick} variant="contained" color="primary">Previous</Button>
+                        {this.props.images.map((image, i) => {
+                            if (image.id - 1 === index) {
+                                this.props.dispatch({ type: 'SAVE_IMAGE_ID', payload: image.id })
+                                return (
+                                    <ImageCard key={i} image={image} />
+                                )
+                            }
+                        })}
+                        <Button className="button" onClick={this.handleNextClick} variant="contained" color="primary">Next</Button>
+                    </div>
+
+                    <Tags />
+                </div>
+                
                 
                 
             </>
