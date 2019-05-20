@@ -1,5 +1,12 @@
+/* @keyframes example {
+  from {background-color: red;}
+  to {background-color: yellow;}
+} */
 body {
-    background-color: #ecc0e52e
+    background-color: #ecc0e52e;
+    /* animation-name: example;
+    animation-duration: 4s; */
+
 }
 
 #next-icon {
