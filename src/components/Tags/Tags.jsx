@@ -9,10 +9,7 @@ import { withStyles, OutlinedInput, InputLabel, FormControl, Select } from '@mat
 import './Tags.css'
 
 const styles = theme => ({
-    root: {
-        // display: 'flex',
-        // flexWrap: 'wrap',
-    },
+    
     formControl: {
         margin: theme.spacing.unit,
         minWidth: 120,
@@ -69,9 +66,9 @@ class Tags extends Component {
                                 onChange={this.handleChange}
                                 input={
                                     <OutlinedInput
-                                        name="age"
+                                        name="tag"
                                         labelWidth={this.state.labelWidth}
-                                        id="outlined-age-native-simple"
+                                        id="outlined-tag-native-simple"
                                     />
                                 }
                             >
