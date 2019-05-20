@@ -1,4 +1,48 @@
-# React-Redux with Sagas
+##Saga Mood Ring
+This is an image carousel that allows users to flip through images and assign multiple tags to each image.
+
+##Built With
+ node.js
+ express
+ javascript
+ react.js
+ redux
+ saga
+ postgresQL
+
+
+
+##Getting Started
+
+##Database Setup
+1. Create a database named `saga_weekend`
+2. Run the queries from `database.sql` on the `saga_weekend` database.
+
+## Install Dependencies
+1. `npm install`
+2. `npm run server`
+3. `npm run client`
+
+##Prerequisites
+Node.js
+postgresQL
+
+
+##Completed Features
+carousel functions, users can scroll either direction
+users can add multiple tags to each image.  tags are stored in database.
+
+##Future Features
+ability to delete tags
+animation to carousel
+
+Authors
+Meyer
+Acknowledgments
+Thanks to Rachel and Maddie for staying late on Friday to get a jump on this!
+
+
+<!--# React-Redux with Sagas
 
 > **PLEASE COMMENT YOUR CODE.** Do not clone this repository. Instead, download the zip, extract the contents, `git init`, `git add .`, `git commit -m "initial commit - base project"` and add your remote. Please do this before you leave for the day.
 
@@ -10,7 +54,7 @@ For this weekend challenge you'll be building a mindfulness application: an imag
 2. Run the queries from `database.sql` on the `saga_weekend` database.
 3. You will need to create the junction table between the `images` and `tags` tables! Your app will be populating this new table.
 
-## Install Dependencies
+ ## Install Dependencies
 
 1. `npm install`
 2. `npm run server`
@@ -89,4 +133,4 @@ You can build this! Other components from Material-UI are fine.
   - [ ] Give it a theme
 - [ ] Create a view that can pull statistics -- How many images have X tag, for example. Think about the data you can access!
 - [ ] Implement a form to add new tags and/or images
-
+ -->
