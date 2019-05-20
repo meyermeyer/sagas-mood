@@ -92,7 +92,9 @@ class Tags extends Component {
                     </FormControl>
                     
                 </div>
-                    <Button onClick={this.handleSubmit} variant="contained" color="primary">Add Tag</Button>
+                <Button onClick={this.handleSubmit} variant="contained" color="primary">
+                    <i aria-hidden="true" class="material-icons" id="add-icon">add</i>Add Tag
+                </Button>
                 <TagList />
             </div>
         )

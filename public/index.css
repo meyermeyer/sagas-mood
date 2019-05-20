@@ -1,3 +1,13 @@
 body {
     background-color: #ecc0e52e
 }
+
+#next-icon {
+    width: 24px;
+    font-size: 24px;
+}
+
+/* #back-icon {
+    width: 24px;
+    font-size: 24px;
+} */

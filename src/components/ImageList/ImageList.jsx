@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import ImageCard from '../ImageCard/ImageCard';
-import {Button} from '@material-ui/core'
+import { Button, Typography} from '@material-ui/core'
 import Tags from '../Tags/Tags'
 import './ImageList.css'
 
@@ -50,12 +50,12 @@ class ImageList extends Component {
         let index = this.state.index;
         console.log(this.state.index);
         
-        return(
-            <>
+        return (
+            <div>
                 <h1>The Mood Ring</h1>
                 <div id="container">
                     <div id="carousel">
-                        <Button className="button" onClick={this.handlePreviousClick} variant="contained" color="primary">Previous</Button>
+                        <Button className="button" onClick={this.handlePreviousClick} variant="contained" color="primary"><i aria-hidden="true" class="material-icons" id="back-icon" >skip_previous</i>Previous</Button>
                         {this.props.images.map((image, i) => {
                             if (image.id - 1 === index) {
                                 this.props.dispatch({ type: 'SAVE_IMAGE_ID', payload: image.id })
@@ -64,17 +64,12 @@ class ImageList extends Component {
                                 )
                             }
                         })}
-                        <Button className="button" onClick={this.handleNextClick} variant="contained" color="primary">Next</Button>
+                        <Button className="button" onClick={this.handleNextClick} variant="contained" color="primary">Next<i aria-hidden="true" class="material-icons" id="next-icon" >skip_next_black_24x24</i></Button>
                     </div>
 
                     <Tags />
                 </div>
-                
-                
-                
-            </>
-            
-            
+            </div>
         )
     }
 }
